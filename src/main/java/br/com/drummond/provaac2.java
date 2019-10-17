@@ -12,8 +12,14 @@ package br.com.drummond;
 
 		@RequestMapping(value = { "/soma/{numero1}/{numero2}/{numero3}","/" , "/health"} , method = RequestMethod.GET)
 		public Integer somar(@PathVariable Integer numero1, @PathVariable Integer numero2 , @PathVariable Integer numero3) {
-			Integer resultado;
-	resultado = numero1 + numero2 + numero3;
+			Integer resultado = numero1;
+			
+			if (numero2 > resultado)
+				resultado = numero2;
+			
+			if (numero3 > resultado)
+				resultado = numero3;
+		
 			
 			return resultado;
 		}
